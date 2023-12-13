@@ -25,9 +25,7 @@ const carregar = async () => {
             const nome = pokemon.forms[0].name
             const imagem = pokemon.sprites.front_default
             const id = pokemon.id
-            const p = document.createElement("p");
             createCards(nome, imagem, id)
-            p.innerText = nome
         });
 
 
