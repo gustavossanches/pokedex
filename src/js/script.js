@@ -1,4 +1,3 @@
-
 import createCards from './modules/criarCards.js'
 
 const carregar = async () => {

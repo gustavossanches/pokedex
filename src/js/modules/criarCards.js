@@ -6,7 +6,7 @@ export default function createCards(nome, imagem, id) {
   const img = document.createElement("img");
   const div = document.createElement("div");
   const h5 = document.createElement("h5");
-  
+
 
   // Inserting the HTML tags in their respective places
   container.appendChild(section);
@@ -14,7 +14,7 @@ export default function createCards(nome, imagem, id) {
   section.appendChild(img);
   section.appendChild(div);
   div.appendChild(h5);
-  
+
   // Adding classes to created HTML tags
   p.classList.add("text-center")
   section.classList.add("card");
@@ -22,12 +22,12 @@ export default function createCards(nome, imagem, id) {
   div.classList.add("card-body");
   h5.classList.add("card-title");
   h5.id = `pokemon-${id}`;
-  
+
   section.addEventListener('click', (_) => {
     const numero_id = id
     window.location.href = `details.html?id=${numero_id}`;
 
-})
+  })
 
   /*
   h5.addEventListener('click', (e) => {
