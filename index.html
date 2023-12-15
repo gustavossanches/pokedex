@@ -2,12 +2,12 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pokedex</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./src/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./src/css/style.css" />
 </head>
 
 <body>
@@ -16,8 +16,8 @@
             <nav class="navbar">
                 <div class="container-fluid">
                     <span class="navbar-brand">Pokédex</span>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search for ID"
+                    <form id="search" class="d-flex">
+                        <input id="inputSearch" class="form-control me-2" type="search" placeholder="Search for ID"
                             aria-label="Search" />
                         <button class="btn btn-primary" type="submit">Search</button>
                     </form>
@@ -27,14 +27,16 @@
     </header>
 
     <main>
+
+        
         <section class="lista container-xl mt-3 border border-primary p-4">
             <div class="row gap-3 justify-content-center" id="container-cards">
-                
+
             </div>
         </section>
     </main>
 
-  <script type="module" src="src/js/script.js"></script>
+    <script type="module" src="src/js/script.js"></script>
 </body>
 
 </html>

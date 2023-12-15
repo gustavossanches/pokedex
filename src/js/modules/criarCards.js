@@ -25,7 +25,7 @@ export default function createCards(nome, imagem, id) {
 
   section.addEventListener('click', (_) => {
     const numero_id = id
-    window.location.href = `details.html?id=${numero_id}`;
+    window.location.href = `/src/pages/details.html?id=${numero_id}`;
 
   })
 
