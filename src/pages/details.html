@@ -7,7 +7,7 @@
     <title>Pokédex</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
@@ -26,47 +26,73 @@
         </div>
     </header>
 
-    <main>
-        <section class="lista container-xl mt-3 border border-primary p-4 bg-danger">
+    <main class="d-flex align-items-center">
+        <section class="lista container-xl mt-3 border border-primary p-4 bg-danger align-items-center">
             <div class="row gap-3 justify-content-center">
                 <!-- imagens do pokemon + versão shiny -->
                 <div class="col-4 ">
                     <div class="text-center border border-primary bg-info">
-                        <p>img pokemon</p>
+                        <p>Normal version</p>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPojXmNYSJHlefLLpJfXNi68837iUl2mT5zA&usqp=CAU"
                             alt="img-pokemon placeholder">
                     </div>
-                    <div class="text-center border border-primary bg-info">
-                        <p>img pokemon shiny</p>
+                    <div class="text-center border border-primary bg-info mt-3">
+                        <p>Shiny version</p>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPojXmNYSJHlefLLpJfXNi68837iUl2mT5zA&usqp=CAU"
                             alt="img-pokemon-shiny placeholder">
                     </div>
                 </div>
                 <!-- Info do pokemon -->
-                <div class=" row col-7 border border-primary bg-info">
-                    <div class="border border-primary mt-1 mb-1 ps-2">
-                        <h5>PENGUINO</h5>
-                        <p>ID: 1531540654</p>
+                <div class="col-7 border border-primary bg-info">
+                    <div class="d-flex justify-content-between border border-primary mt-1 mb-1 ps-2">
+                        <h5 id="result-name"></h5>
+                        <div class="d-flex pe-2">
+                            <p>ID:</p>
+                            <p id="result-id"></p>
+                        </div>
                     </div>
-                    <p class="border border-primary mt-1 mb-1 ps-2">Type: fire ice</p>
-                    <div class="border border-primary mt-1 mb-1 ps-2">
-                        <p>Height: 100</p>
-                        <p>Weight: 100</p>
+                    <div class="d-flex justify-content-center border border-primary mt-1 mb-1 ps-2 gap-1">
+                        <p>Type:</p>
+                        <p id="result-type"></p>
+                    </div>
+                    <div class="d-flex justify-content-center border border-primary mt-1 mb-1 ps-2 gap-3">
+                        <div class="d-flex gap-1">
+                            <p>Height:</p>
+                            <p id="result-height"></p>
+                            <p>meters</p>
+                        </div>
+                        <div class="d-flex gap-1">
+                            <p>Weight:</p>
+                            <p id="result-weight"></p>
+                            <p>Kg</p>
+                        </div>
                     </div>
                     <div class="d-flex justify-content-around">
-                        <div class="col-5 border border-primary mt-1 mb-1 ps-2">
+                        <div class=" col-5 border border-primary mt-1 mb-1">
                             <p>Stats:</p>
-                            <P>HP:</P>
-                            <p>ATK:</p>
-                            <P>DEF:</P>
-                            <P>SP. ATK:</P>
-                            <P>SP. DEF:</P>
-                            <P>SPEED:</P>
+                            <div class="d-flex">
+                                <div class="col-6">
+                                    <P class="bg-primary">HP:</p>
+                                    <p>ATK:</p>
+                                    <p class="bg-primary">DEF:</p>
+                                    <p>SP. ATK:</p>
+                                    <p class="bg-primary">SP. DEF:</p>
+                                    <p>SPEED:</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="bg-primary" id="result-hp"></p>
+                                    <p id="result-atk"></p>
+                                    <p class="bg-primary" id="result-def"></p>
+                                    <p id="result-spatk"></p>
+                                    <p class="bg-primary" id="result-spdef"></p>
+                                    <p id="result-spd"></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class=" col-5 border border-primary mt-1 mb-1 ps-2">
+                        <div class="moves col-5 border border-primary mt-1 mb-1 ps-2">
                             <p>Moves:</p>
                             <div class="text-center">
-                                <p>teste</p>
+                                <p id="result-moves"></p>
                             </div>
                         </div>
                     </div>
