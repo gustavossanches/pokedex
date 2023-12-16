@@ -14,3 +14,10 @@ main {
     height: 10.625rem;
     overflow-y: auto;
 }
+
+@media only screen and (max-width: 450px) {
+    main {
+        margin-top: 110px;
+    }
+    
+}
