@@ -23,7 +23,7 @@ export default function createCards(nome, imagem, id) {
   h5.classList.add("card-title");
   h5.id = `pokemon-${id}`;
 
-  section.addEventListener('click', (_) => {
+  section.addEventListener('click', () => {
     const numero_id = id
     window.location.href = `/src/pages/details.html?id=${numero_id}`;
 

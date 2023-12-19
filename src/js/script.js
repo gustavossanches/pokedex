@@ -3,7 +3,7 @@ import createCards from './modules/criarCards.js'
 //retorna os dados de todos os pokemons (name e url do pokemon)
 const fetchAllPokemons = async () => {
     try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=10000')
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=100')
         const results = await response.json()
         const all = results.results
         return all
