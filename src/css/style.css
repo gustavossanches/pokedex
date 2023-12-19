@@ -7,17 +7,22 @@ p {
 }
 
 main {
-    height: calc(100vh - 56px);
+    height: calc(100vh - 72px );
 }
-
+/* height calc is 100vh - (56px from height of header + 16px from margin of button return to home) */
 .moves {
     height: 10.625rem;
     overflow-y: auto;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 767px) {
     main {
-        margin-top: 110px;
+        margin-top: 220px;
     }
-    
+
+}
+
+img {
+    height: 225px;
+    width: 225px;
 }

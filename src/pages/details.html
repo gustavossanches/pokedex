@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <span class="navbar-brand">Pokédex</span>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search for ID"
+                        <input class="form-control me-2" type="search" placeholder="Search for Name or ID"
                             aria-label="Search" />
                         <button class="btn btn-primary" type="submit">Search</button>
                     </form>
@@ -27,74 +27,89 @@
     </header>
 
     <main class="d-flex align-items-center">
-        <section class="lista container-xl mt-3 border border-primary p-4 bg-danger align-items-center">
-            <div class="row gap-3 justify-content-center">
-                <!-- imagens do pokemon + versão shiny -->
-                <div class="col-md-4 col-sm-12">
-                    <div class="text-center border border-primary bg-info">
-                        <p>Normal version</p>
-                        <img id="image-normal" alt="img-pokemon placeholder">
-                    </div>
-                    <div class="text-center border border-primary bg-info mt-3">
-                        <p>Shiny version</p>
-                        <img id="image-shiny" alt="img-pokemon-shiny placeholder">
-                    </div>
-                </div>
-                <!-- Info do pokemon -->
-                <div class="col-md-7 border border-primary bg-info">
-                    <div class="d-flex justify-content-between border border-primary mt-1 mb-1 ps-2">
-                        <h5 id="result-name"></h5>
-                        <div class="d-flex pe-2">
-                            <p>ID:</p>
-                            <p id="result-id"></p>
+        <div class="container-xl">
+            <section class="btn-return mt-3">
+                <button type="button" class="btn btn-primary">Return to Home</button>
+            </section>
+            <div class="d-flex align-items-center">
+                <section class="lista container-xl mt-3 border border-primary p-4 bg-danger align-items-center">
+                    <div class="row gap-3 justify-content-center">
+                        <!-- imagens do pokemon + versão shiny -->
+                        <div class="col-md-4 col-sm-12">
+                            <div class="text-center border border-primary bg-info">
+                                <p>Normal version</p>
+                                <img id="image-normal" alt="img-pokemon placeholder">
+                            </div>
+                            <div class="text-center border border-primary bg-info mt-3">
+                                <p>Shiny version</p>
+                                <img id="image-shiny" alt="img-pokemon-shiny placeholder">
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-center border border-primary mt-1 mb-1 ps-2 gap-1">
-                        <p>Type:</p>
-                        <p id="result-type"></p>
-                    </div>
-                    <div class="d-flex justify-content-center border border-primary mt-1 mb-1 ps-2 gap-3">
-                        <div class="d-flex gap-1">
-                            <p>Height:</p>
-                            <p id="result-height"></p>
-                            <p>meters</p>
-                        </div>
-                        <div class="d-flex gap-1">
-                            <p>Weight:</p>
-                            <p id="result-weight"></p>
-                            <p>Kg</p>
-                        </div>
-                    </div>
-                    <div class="d-md-flex justify-content-md-around">
-                        <div class=" col-5 border border-primary mt-1 mb-1">
-                            <p>Stats:</p>
-                            <div class="d-flex">
-                                <div class="col-6">
-                                    <P class="bg-primary">HP:</p>
-                                    <p>ATK:</p>
-                                    <p class="bg-primary">DEF:</p>
-                                    <p>SP. ATK:</p>
-                                    <p class="bg-primary">SP. DEF:</p>
-                                    <p>SPEED:</p>
+                        <!-- Info do pokemon -->
+                        <div class="col-md-7 border border-primary bg-info">
+                            <div class="d-flex justify-content-between border border-primary mt-1 mb-1 ps-2">
+                                <h5 id="result-name"></h5>
+                                <div class="d-flex pe-2">
+                                    <p>ID:</p>
+                                    <p id="result-id"></p>
                                 </div>
-                                <div class="col-6">
-                                    <p class="bg-primary" id="result-hp"></p>
-                                    <p id="result-atk"></p>
-                                    <p class="bg-primary" id="result-def"></p>
-                                    <p id="result-spatk"></p>
-                                    <p class="bg-primary" id="result-spdef"></p>
-                                    <p id="result-spd"></p>
+                            </div>
+                            <div class="d-flex justify-content-center border border-primary mt-1 mb-1 ps-2 gap-1">
+                                <p>Type:</p>
+                                <p id="result-type"></p>
+                            </div>
+                            <div class="d-flex justify-content-center border border-primary mt-1 mb-1 ps-2 gap-3">
+                                <div class="d-flex gap-1">
+                                    <p>Height:</p>
+                                    <p id="result-height"></p>
+                                    <p>meters</p>
+                                </div>
+                                <div class="d-flex gap-1">
+                                    <p>Weight:</p>
+                                    <p id="result-weight"></p>
+                                    <p>Kg</p>
+                                </div>
+                            </div>
+                            <div class="d-md-flex justify-content-md-around">
+                                <div class=" col-md-5 border border-primary mt-1 mb-1">
+                                    <p>Stats:</p>
+                                    <div class="d-flex">
+                                        <div class="col-6">
+                                            <P class="bg-primary">HP:</p>
+                                            <p>ATK:</p>
+                                            <p class="bg-primary">DEF:</p>
+                                            <p>SP. ATK:</p>
+                                            <p class="bg-primary">SP. DEF:</p>
+                                            <p>SPEED:</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="bg-primary" id="result-hp"></p>
+                                            <p id="result-atk"></p>
+                                            <p class="bg-primary" id="result-def"></p>
+                                            <p id="result-spatk"></p>
+                                            <p class="bg-primary" id="result-spdef"></p>
+                                            <p id="result-spd"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="moves col-md-5 border border-primary mt-1 mb-1 ps-2">
+                                    <p>Moves:</p>
+                                    <div class="text-center">
+                                        <p id="result-moves"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="moves col-5 border border-primary mt-1 mb-1 ps-2">
-                            <p>Moves:</p>
-                            <div class="text-center">
-                                <p id="result-moves"></p>
-                            </div>
-                        </div>
                     </div>
-        </section>
+                </section>
+            </div>
+
+            <section class="btn-previous-next-pokemon d-flex justify-content-between mt-3">
+                <button type="button" class="btn btn-primary">
+                    < Previous pokémon</button>
+                        <button type="button" class="btn btn-primary">Next pokémon ></button>
+            </section>
+        </div>
     </main>
 
     <script type="module" src="../js/details.js"></script>
