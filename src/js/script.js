@@ -1,5 +1,10 @@
 import createCards from './modules/criarCards.js'
 
+
+
+
+
+
 //retorna os dados de todos os pokemons (name e url do pokemon)
 const fetchAllPokemons = async () => {
     try {
@@ -40,11 +45,13 @@ const criarCards = async () => {
     for(const pokemon of allPokemons){
         const pokemonInfo = await fetchPokemonInfo(pokemon.url)
 
+        console.log(pokemonInfo.types[0].type.name)
+        const type = pokemonInfo.types[0].type.name
         const nome = pokemonInfo.name
         const imagem = pokemonInfo.sprites.front_default
         const id = pokemonInfo.id
 
-        createCards(nome, imagem, id)
+        createCards(nome, imagem, id, type)
     }
 
 }

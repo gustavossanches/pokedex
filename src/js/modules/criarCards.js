@@ -1,4 +1,4 @@
-export default function createCards(nome, imagem, id) {
+export default function createCards(nome, imagem, id, type) {
   // Creating HTML tags and variables for pokémon's data; 
   const container = document.getElementById("container-cards");
   const section = document.createElement("section");
@@ -6,6 +6,7 @@ export default function createCards(nome, imagem, id) {
   const img = document.createElement("img");
   const div = document.createElement("div");
   const h5 = document.createElement("h5");
+  const tipo = document.createElement("p");
 
 
   // Inserting the HTML tags in their respective places
@@ -14,6 +15,7 @@ export default function createCards(nome, imagem, id) {
   section.appendChild(img);
   section.appendChild(div);
   div.appendChild(h5);
+  div.appendChild(tipo);
 
   // Adding classes to created HTML tags
   p.classList.add("text-center")
@@ -22,6 +24,7 @@ export default function createCards(nome, imagem, id) {
   div.classList.add("card-body");
   h5.classList.add("card-title");
   h5.id = `pokemon-${id}`;
+  
 
   section.addEventListener('click', () => {
     const numero_id = id
@@ -37,6 +40,7 @@ export default function createCards(nome, imagem, id) {
 
   // Inserting the pokémon's data in their respective HTML tags
   p.innerText = id;
+  tipo.innerText = type;
   h5.innerText = nome;
   img.src = imagem;
 }
