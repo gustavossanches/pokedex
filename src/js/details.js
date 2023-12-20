@@ -51,16 +51,18 @@ const carregaDetail = async (idd) => {
         //pega as informações do pokemon da url
         const nome = results.forms[0].name
         const moves = results.moves
-        const pokemonMoves = []
-        moves.forEach(move => {
-            pokemonMoves.push(move.move.name)
+        moves.forEach(({move}) => {
+            const result_moves = document.getElementById('result-moves')
+            result_moves.innerHTML += `<div>${move.name}</div>`
         });
-        const pokemonTypes = []
+        
         const types = results.types
-        types.forEach(type => {
-            pokemonTypes.push(type.type.name)
+        types.forEach(({type}) => {
+            const result_type = document.getElementById('result-type')
+            result_type.innerHTML += `<div class="type-${type.name}">${type.name}</div>`
         })
-        const height = results.height
+
+        const height = results.height / 10;
         const weight = results.weight
         const image = results.sprites.front_default
         const imageShiny = results.sprites.front_shiny
@@ -88,8 +90,7 @@ const carregaDetail = async (idd) => {
         const result_id = document.getElementById('result-id')
         result_id.innerHTML = id
 
-        const result_moves = document.getElementById('result-moves')
-        result_moves.innerHTML = pokemonMoves
+
 
         const result_weight = document.getElementById('result-weight')
         result_weight.innerHTML = weight
@@ -111,19 +112,12 @@ const carregaDetail = async (idd) => {
 
         const result_speed = document.getElementById('result-spd')
         result_speed.innerHTML = speed
-        
-        const result_type = document.getElementById('result-type')
-        result_type.innerHTML = pokemonTypes
-        
+                
         const image_normal = document.getElementById('image-normal')
         image_normal.src = image
         
         const image_shiny = document.getElementById('image-shiny')
-        image_shiny.src = imageShiny
-
-
-        
-
+        image_shiny.src = imageShiny     
 
 
     } catch (error) {
