@@ -1,5 +1,5 @@
 
-const escolherCor = (tipo) => {
+export const escolherCor = (tipo) => {
   const colors = {
     'normal': '#afada6',
     'poison': '#a05790',

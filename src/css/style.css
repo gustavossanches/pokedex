@@ -1,7 +1,14 @@
 
 @font-face {
     font-family: 'Pokemon Solid'; /* Dê um nome à sua fonte */
-    src: url(../../Pokemon\ Solid.ttf) format('woff2'); /* Substitua pelo caminho real da sua fonte */
+    src: url(/src/fonts/Pokemon\ Solid.ttf) format('woff2'); /* Substitua pelo caminho real da sua fonte */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pokemon  Classic'; /* Dê um nome à sua fonte */
+    src: url(/src/fonts/Pokemon\ Classic.ttf) format('woff2'); /* Substitua pelo caminho real da sua fonte */
     font-weight: normal;
     font-style: normal;
 }
@@ -59,11 +66,26 @@ img {
     border: 3px solid rgb(75, 63, 63);
 }
 
+.tipos-detail{
+    text-align: center;
+    border-radius: 1rem;
+    width: 100%;
+    border: 3px solid rgb(75, 63, 63);
+    padding: 0px 10px;
+}
+
 .card-title{
     font-family: 'Pokemon Solid', sans-serif;
     color: rgb(82, 70, 70);
 }
 
-.tipos, .pokemon-id{
+#result-type{
+    display: flex;
+}
+.tipos, .pokemon-id, .tipos-detail{
     font-family: monospace, sans-serif;
+}
+
+.version-name, #result-name{
+    font-family: 'Pokemon  Classic', sans-serif;
 }

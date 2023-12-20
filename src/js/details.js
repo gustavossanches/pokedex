@@ -1,3 +1,5 @@
+import { escolherCor } from "./modules/criarCards.js";
+
 //pega o id da url do pokemon especifico(usar o fetch com esse id para ter elementos do pokemon especifico)
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
@@ -31,7 +33,7 @@ next.addEventListener('click', () => {
 
 //botao previous
 const previous = document.getElementById('previous')
-if(id == 1){    //some o botao caso seja o primeiro pokemon
+if (id == 1) {    //some o botao caso seja o primeiro pokemon
     previous.style.display = 'none'
 }
 previous.addEventListener('click', () => {
@@ -43,6 +45,7 @@ previous.addEventListener('click', () => {
 })
 
 
+
 const carregaDetail = async (idd) => {
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${idd}`)
@@ -50,17 +53,30 @@ const carregaDetail = async (idd) => {
 
         //pega as informações do pokemon da url
         const nome = results.forms[0].name
+        const nomeFormatado = nome.charAt(0).toUpperCase() + nome.substring(1)
+
         const moves = results.moves
-        moves.forEach(({move}) => {
+
+        //cria uma div para cada move
+        moves.forEach(({ move }) => {
             const result_moves = document.getElementById('result-moves')
             result_moves.innerHTML += `<div>${move.name}</div>`
         });
-        
+
+        //cria uma div para cada tipo
         const types = results.types
-        types.forEach(({type}) => {
+        types.forEach(({ type }) => {
             const result_type = document.getElementById('result-type')
-            result_type.innerHTML += `<div class="type-${type.name}">${type.name}</div>`
+            console.log(result_type)
+            result_type.innerHTML += `<div class="tipos-detail m-2 type-${type.name}">${type.name}</div>`
         })
+
+        //adiciona style nos tipos com base na classe definida em cada um
+        const tipos_pokemon_details = document.getElementsByClassName('tipos-detail')
+            for(const tipo of tipos_pokemon_details){
+                const tipo_classe = tipo.className.split(' ')[2].split('-')[1]
+                tipo.style.backgroundColor = escolherCor(tipo_classe)
+            }
 
         const height = results.height / 10;
         const weight = results.weight
@@ -82,7 +98,7 @@ const carregaDetail = async (idd) => {
 
         //pega os ids e insere os dados
         const result_name = document.getElementById('result-name')
-        result_name.innerHTML = nome
+        result_name.innerHTML = nomeFormatado
 
         const result_height = document.getElementById('result-height')
         result_height.innerHTML = height
@@ -112,19 +128,18 @@ const carregaDetail = async (idd) => {
 
         const result_speed = document.getElementById('result-spd')
         result_speed.innerHTML = speed
-                
+
         const image_normal = document.getElementById('image-normal')
         image_normal.src = image
-        
+
         const image_shiny = document.getElementById('image-shiny')
-        image_shiny.src = imageShiny     
+        image_shiny.src = imageShiny
 
 
     } catch (error) {
-        
+
     }
 }
 
-console.log(carregaDetail(idd))
 
 carregaDetail(idd)
