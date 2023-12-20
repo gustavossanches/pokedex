@@ -45,7 +45,6 @@ const criarCards = async () => {
     for(const pokemon of allPokemons){
         const pokemonInfo = await fetchPokemonInfo(pokemon.url)
 
-        console.log(pokemonInfo.types[0].type.name)
         const type = pokemonInfo.types[0].type.name
         const nome = pokemonInfo.name
         const imagem = pokemonInfo.sprites.front_default
@@ -71,13 +70,12 @@ searchForm.addEventListener("submit", async (event) => {
     //console.log("pokemonsFiltered: ", pokemonsFiltered);
 
     for (const pokemon of pokemonsFiltered) {
-       // console.log("Pokemon: ", pokemon)
-        const pokemonData = await getPokemonInfo(pokemon.url) //pega a url do pokemon e passa para a função que pega os dados pela url
-        console.log(pokemonData)
+        const pokemonData = await fetchPokemonInfo(pokemon.url) //pega a url do pokemon e passa para a função que pega os dados pela url
+        const type =  pokemonData.types[0].type.name
         const nome = pokemonData.name;
         const imagem = pokemonData.sprites.front_default
         const id = pokemonData.id;
-        createCards(nome, imagem, id) //no final do submit vai trazer novos cards com os dados filtrados
+        createCards(nome, imagem, id, type) //no final do submit vai trazer novos cards com os dados filtrados
     }
 
 })
