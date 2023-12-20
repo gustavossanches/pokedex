@@ -2,14 +2,24 @@ import createCards from './modules/criarCards.js'
 
 
 
+let aqui = 5
+const nextTeste = document.getElementById('next')
+console.log(nextTeste)
 
-
+const numero = nextTeste.addEventListener('click', () => {
+    aqui += 10
+    console.log(aqui)
+    return aqui
+})
+//TESTE PAGINATION
 
 //retorna os dados de todos os pokemons (name e url do pokemon)
-const fetchAllPokemons = async () => {
+const fetchAllPokemons = async (aqui) => {
     try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=100')
+       
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=10&offset=${aqui}`)
         const results = await response.json()
+        console.log('aquii: ', results.next)
         const all = results.results
         return all
     } catch (error) {
@@ -39,10 +49,10 @@ const fetchPokemonInfo = async (urlPokemon) => { //recebe a url de UM pokemon e 
 }
 
 //cria os cards quando carrega a página
-const criarCards = async () => {
-    const allPokemons = await fetchAllPokemons()
+const criarCards = async (teste) => {
+    const allPokemons = await fetchAllPokemons(teste)
 
-    for(const pokemon of allPokemons){
+    for (const pokemon of allPokemons) {
         const pokemonInfo = await fetchPokemonInfo(pokemon.url)
 
         const type = pokemonInfo.types[0].type.name
@@ -54,7 +64,7 @@ const criarCards = async () => {
     }
 
 }
-criarCards()
+criarCards(aqui)
 
 
 const searchForm = document.querySelector("#search")
@@ -71,7 +81,7 @@ searchForm.addEventListener("submit", async (event) => {
 
     for (const pokemon of pokemonsFiltered) {
         const pokemonData = await fetchPokemonInfo(pokemon.url) //pega a url do pokemon e passa para a função que pega os dados pela url
-        const type =  pokemonData.types[0].type.name
+        const type = pokemonData.types[0].type.name
         const nome = pokemonData.name;
         const imagem = pokemonData.sprites.front_default
         const id = pokemonData.id;
