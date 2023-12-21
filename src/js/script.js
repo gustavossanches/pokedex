@@ -6,12 +6,13 @@ const btnPrevious = document.getElementById('previous')
 let page = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"//url padrao que vai ser trocada por results.next para paginação
 let previousPage = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"
 
+
+
 //retorna os dados de todos os pokemons (name e url do pokemon)
 const fetchAllPokemons = async (a) => {
     try {
         const response = await fetch(a)
         const results = await response.json()
-        console.log('results next -> ', results.next)
         page =  results.next
         previousPage = results.previous
         const all = results.results
@@ -20,6 +21,16 @@ const fetchAllPokemons = async (a) => {
         console.log(error)
     }
 }
+//teste loading
+let loading = document.getElementById('loading')
+let containerCards = document.getElementById('container-cards')
+const tweste = window.addEventListener('load', async (teste) => {
+    await fetchAllPokemons(teste)
+    containerCards.classList.remove('d-none')
+    loading.classList.add('d-none')
+})
+
+
 
 // const getUrlsPokemons = async () => {
 //     //pegar url de todos os pokemons (um por um)
@@ -87,11 +98,11 @@ searchForm.addEventListener("submit", async (event) => {
 
 
 btnPrevious.addEventListener('click', () => {
-    console.log("Teste2")
     criarCards(previousPage)
 })
 
 btnNext.addEventListener('click', () => {
-    console.log("Teste1")
     criarCards(page)
 })
+
+
