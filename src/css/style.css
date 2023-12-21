@@ -89,3 +89,32 @@ img {
 .version-name, #result-name{
     font-family: 'Pokemon  Classic', sans-serif;
 }
+
+.buttons-index-next, .buttons-index-prev{
+    width: 3rem;
+    height: 9rem;
+    border-radius: 1.5rem;
+
+    background-color: lightgray;
+}
+.buttons-index-prev{
+    margin-left: 5rem;
+    box-shadow: 4px 1px 10px -4px black;
+}
+.buttons-index-next{
+    margin-right: 5rem;
+    box-shadow: -4px 1px 10px -4px black;
+}
+
+.buttons-index-next:hover, .buttons-index-prev:hover{
+    filter: contrast(110%);
+}
+
+.buttons-index-prev:active{
+    background-color: rgb(174 179 183);
+    box-shadow: inset 1px 0px 3px 1px black;
+}
+.buttons-index-next:active{
+    background-color: rgb(174 179 183);
+    box-shadow: inset -1px 0px 3px 1px black;
+}

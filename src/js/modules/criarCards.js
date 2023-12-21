@@ -61,7 +61,6 @@ export default function createCards(nome, imagem, id, type) {
 
   tipo.classList.add("tipos");
   tipo.style.backgroundColor = escolherCor(type)
-
   section.style.backgroundColor = escolherCor(type)
 
 

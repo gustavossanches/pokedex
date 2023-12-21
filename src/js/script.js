@@ -1,25 +1,19 @@
 import createCards from './modules/criarCards.js'
 
 
-
-let aqui = 5
-const nextTeste = document.getElementById('next')
-console.log(nextTeste)
-
-const numero = nextTeste.addEventListener('click', () => {
-    aqui += 10
-    console.log(aqui)
-    return aqui
-})
-//TESTE PAGINATION
+const btnNext = document.getElementById('next')
+const btnPrevious = document.getElementById('previous')
+let page = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"//url padrao que vai ser trocada por results.next para paginação
+let previousPage = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"
 
 //retorna os dados de todos os pokemons (name e url do pokemon)
-const fetchAllPokemons = async (aqui) => {
+const fetchAllPokemons = async (a) => {
     try {
-       
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=10&offset=${aqui}`)
+        const response = await fetch(a)
         const results = await response.json()
-        console.log('aquii: ', results.next)
+        console.log('results next -> ', results.next)
+        page =  results.next
+        previousPage = results.previous
         const all = results.results
         return all
     } catch (error) {
@@ -49,8 +43,9 @@ const fetchPokemonInfo = async (urlPokemon) => { //recebe a url de UM pokemon e 
 }
 
 //cria os cards quando carrega a página
-const criarCards = async (teste) => {
-    const allPokemons = await fetchAllPokemons(teste)
+const criarCards = async (a) => {
+    document.querySelector("#container-cards").innerHTML = "";
+    const allPokemons = await fetchAllPokemons(a)
 
     for (const pokemon of allPokemons) {
         const pokemonInfo = await fetchPokemonInfo(pokemon.url)
@@ -64,7 +59,7 @@ const criarCards = async (teste) => {
     }
 
 }
-criarCards(aqui)
+criarCards(page)
 
 
 const searchForm = document.querySelector("#search")
@@ -88,4 +83,15 @@ searchForm.addEventListener("submit", async (event) => {
         createCards(nome, imagem, id, type) //no final do submit vai trazer novos cards com os dados filtrados
     }
 
+})
+
+
+btnPrevious.addEventListener('click', () => {
+    console.log("Teste2")
+    criarCards(previousPage)
+})
+
+btnNext.addEventListener('click', () => {
+    console.log("Teste1")
+    criarCards(page)
 })
