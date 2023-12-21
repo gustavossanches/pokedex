@@ -21,8 +21,11 @@ p {
     margin-bottom: 0;
 }
 
-main {
-    height: calc(100vh - 72px );
+body {
+    
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSijWiUyDnMpsTFm-PDbaP8szK0XmswllYz3w&usqp=CAU);
+    background-repeat: repeat;
+    background-size: cover;
 }
 /* height calc is 100vh - (56px from height of header + 16px from margin of button return to home) */
 .moves {
@@ -30,12 +33,9 @@ main {
     overflow-y: auto;
 }
 
-@media only screen and (max-width: 767px) {
-    main {
-        margin-top: 220px;
-    }
 
-}
+
+
 
 a{
     text-decoration: none;
@@ -47,7 +47,7 @@ a{
 }
 
 
-img {
+#image-normal, #image-shiny {
     height: 225px;
     width: 225px;
 }
@@ -82,11 +82,11 @@ img {
 #result-type{
     display: flex;
 }
-.tipos, .pokemon-id, .tipos-detail{
+.tipos, .pokemon-id, .tipos-detail, .btn-return, .btn-previous-next-pokemon{
     font-family: monospace, sans-serif;
 }
 
-.version-name, #result-name{
+.version-name, #result-name, .id, #result-id, .type, .height, .weight, .stats, .moves {
     font-family: 'Pokemon  Classic', sans-serif;
 }
 

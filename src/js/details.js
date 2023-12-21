@@ -79,7 +79,7 @@ const carregaDetail = async (idd) => {
             }
 
         const height = results.height / 10;
-        const weight = results.weight
+        const weight = results.weight / 10;
         const image = results.sprites.front_default
         const imageShiny = results.sprites.front_shiny
         const pokemonEstatisticas = []
