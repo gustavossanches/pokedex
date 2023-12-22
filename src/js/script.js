@@ -6,12 +6,10 @@ const btnPrevious = document.getElementById('previous')
 let page = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"//url padrao que vai ser trocada por results.next para paginação
 let previousPage = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0"
 
-
-
 //retorna os dados de todos os pokemons (name e url do pokemon)
-const fetchAllPokemons = async (a) => {
+const fetchAllPokemons = async (url) => {
     try {
-        const response = await fetch(a)
+        const response = await fetch(url)
         const results = await response.json()
         page = results.next
         previousPage = results.previous
@@ -22,11 +20,12 @@ const fetchAllPokemons = async (a) => {
     }
 }
 
+//loading enquanto não carrega os dados
 let loading = document.getElementById('loading')
 let contentSection = document.getElementById('content-section')
 let contentButtons = document.getElementById('content-buttons')
-const tweste = window.addEventListener('load', async (teste) => {
-    await fetchAllPokemons(teste)
+window.addEventListener('load', () => {
+
     contentSection.classList.remove('d-none')
     contentButtons.classList.remove('d-none')
     loading.classList.add('d-none')
@@ -67,7 +66,6 @@ searchForm.addEventListener("submit", async (event) => {
 
     const pokemonsFiltered = data.results.filter(pokemon => pokemon.name.includes(value));//filtra is pokemons por nome verificando se o que foi digitado esta no nome dele
 
-    //console.log("pokemonsFiltered: ", pokemonsFiltered);
 
     for (const pokemon of pokemonsFiltered) {
         const pokemonData = await fetchPokemonInfo(pokemon.url) //pega a url do pokemon e passa para a função que pega os dados pela url
@@ -98,7 +96,6 @@ searchForm.addEventListener("submit", async (event) => {
     }
 
 })
-
 
 btnPrevious.addEventListener('click', () => {
     criarCards(previousPage)

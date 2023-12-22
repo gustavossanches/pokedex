@@ -3,7 +3,6 @@ import { escolherCor } from "./modules/criarCards.js";
 //pega o id da url do pokemon especifico(usar o fetch com esse id para ter elementos do pokemon especifico)
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
-let idd = id
 
 //botao next
 const next = document.getElementById('next')
@@ -31,22 +30,16 @@ previous.addEventListener('click', () => {
 
 
 
-const carregaDetail = async (idd) => {
+const carregaDetail = async (id) => {
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${idd}`)
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
         const results = await response.json()
-        console.log(results.species.url)
         const descriptionFetch = await fetch(results.species.url)
         const descriptionretults = await descriptionFetch.json()
-        
-        console.log(descriptionretults.flavor_text_entries[0])
         const description = descriptionretults.flavor_text_entries[0].flavor_text.replaceAll('\f', ' ')
         const tagdescription = document.getElementById('description')
         tagdescription.innerHTML = description
-        console.log('tag>>> ', tagdescription)
         
-        
-
         //pega as informações do pokemon da url
         const nome = results.forms[0].name
         const nomeFormatado = nome.charAt(0).toUpperCase() + nome.substring(1)
@@ -138,4 +131,4 @@ const carregaDetail = async (idd) => {
 }
 
 
-carregaDetail(idd)
+carregaDetail(id)

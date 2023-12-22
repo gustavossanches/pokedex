@@ -73,12 +73,6 @@ export default function createCards(nome, imagem, id, type) {
 
   })
 
-  /*
-  h5.addEventListener('click', (e) => {
-    redirect_detail(h5.id)
-  })
-  */
-
   // Inserting the pokémon's data in their respective HTML tags
   const nomeFormatado = nome.charAt(0).toUpperCase() + nome.substring(1)
   p.innerText = id;
@@ -86,7 +80,5 @@ export default function createCards(nome, imagem, id, type) {
   h5.innerText = nomeFormatado;
   img.src = imagem;
 }
-
-
 
 //TODO: nesse module, iremos criar a função que cria o card do exemplo no index.html usando o que aprendemos nas aulas de criação de elementos DOM (UC2 - aula 8 - dia 15/11). Depois de criar iremos exportar essa função para a script.js
