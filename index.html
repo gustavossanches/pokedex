@@ -34,18 +34,19 @@
             </div>
         </div>
 
-        <div class="d-flex align-items-center">
-            <button id="previous" type="button" class="btn col-2 btn-primary">Previous</button>
-
-            <section class=" container-xl mt-3 border border-primary p-4">
-                <div class="lista-cards row gap-3 d-none justify-content-center" id="container-cards">
+        <div class="">
+            <section id="content-section" class=" container-xl d-none mt-3 border border-primary p-4">
+                <div class="lista-cards row gap-3 justify-content-center" id="container-cards">
                     <!-- Card goes here! -->
                 </div>
             </section>
-
-            <button id="next" type="button" class="btn col-2 btn-primary">Next</button>
-
-
+            
+            <div class="d-flex justify-content-center">
+                <div id="content-buttons" class="d-flex col-8 p-3 d-none justify-content-between">
+                    <button id="previous" type="button" class="btn col-2 btn-primary">Previous</button>
+                    <button id="next" type="button" class="btn col-2 btn-primary">Next</button>
+                </div>
+            </div>
         </div>
     </main>
 

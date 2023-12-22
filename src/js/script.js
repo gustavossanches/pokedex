@@ -13,7 +13,7 @@ const fetchAllPokemons = async (a) => {
     try {
         const response = await fetch(a)
         const results = await response.json()
-        page =  results.next
+        page = results.next
         previousPage = results.previous
         const all = results.results
         return all
@@ -21,30 +21,16 @@ const fetchAllPokemons = async (a) => {
         console.log(error)
     }
 }
-//teste loading
+
 let loading = document.getElementById('loading')
-let containerCards = document.getElementById('container-cards')
+let contentSection = document.getElementById('content-section')
+let contentButtons = document.getElementById('content-buttons')
 const tweste = window.addEventListener('load', async (teste) => {
     await fetchAllPokemons(teste)
-    containerCards.classList.remove('d-none')
+    contentSection.classList.remove('d-none')
+    contentButtons.classList.remove('d-none')
     loading.classList.add('d-none')
 })
-
-
-
-// const getUrlsPokemons = async () => {
-//     //pegar url de todos os pokemons (um por um)
-//     const all = await fetchAllPokemons()
-//     for (let pokemon of all) {
-//         const idPokemon = pokemon.url.split('/')[6]
-
-//         // await fetch(urlPokemon)
-//         //     .then(url => url.json())
-//         //     .then(urlPokemon => arrayUrls.push(urlPokemon))//passando url de cada pokemon para o array criado aontes
-
-//     }
-//     return arrayUrls
-// }
 
 //faz o fetch na url do pokemon passada no parametro e retorna suas informações
 const fetchPokemonInfo = async (urlPokemon) => { //recebe a url de UM pokemon e retorna seus dados
@@ -54,9 +40,9 @@ const fetchPokemonInfo = async (urlPokemon) => { //recebe a url de UM pokemon e 
 }
 
 //cria os cards quando carrega a página
-const criarCards = async (a) => {
+const criarCards = async (url) => {
     document.querySelector("#container-cards").innerHTML = "";
-    const allPokemons = await fetchAllPokemons(a)
+    const allPokemons = await fetchAllPokemons(url)
 
     for (const pokemon of allPokemons) {
         const pokemonInfo = await fetchPokemonInfo(pokemon.url)
@@ -65,13 +51,11 @@ const criarCards = async (a) => {
         const nome = pokemonInfo.name
         const imagem = pokemonInfo.sprites.front_default
         const id = pokemonInfo.id
-
         createCards(nome, imagem, id, type)
     }
 
 }
 criarCards(page)
-
 
 const searchForm = document.querySelector("#search")
 searchForm.addEventListener("submit", async (event) => {
@@ -91,7 +75,26 @@ searchForm.addEventListener("submit", async (event) => {
         const nome = pokemonData.name;
         const imagem = pokemonData.sprites.front_default
         const id = pokemonData.id;
+
         createCards(nome, imagem, id, type) //no final do submit vai trazer novos cards com os dados filtrados
+    }
+
+    //mensagem caso search não tenha dados e tira os botões
+    const dataSearchNull = containerCards.childNodes.length
+    if(dataSearchNull == 0){
+        const nullMessage = 'Nenhum pokémon foi encontrado!'
+        const tagMessage = document.createElement('h3')
+        tagMessage.classList.add('messageNull')
+        tagMessage.append(nullMessage)
+        containerCards.append(tagMessage)
+
+        const prev = document.getElementById('previous')
+        const next = document.getElementById('next')
+        prev.style.display = 'none'
+        next.style.display = 'none'
+
+        prev.setAttribute("disabled", true);
+        next.setAttribute("disabled", true);
     }
 
 })
@@ -104,5 +107,6 @@ btnPrevious.addEventListener('click', () => {
 btnNext.addEventListener('click', () => {
     criarCards(page)
 })
+
 
 

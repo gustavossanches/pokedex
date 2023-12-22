@@ -7,7 +7,7 @@
 }
 
 @font-face {
-    font-family: 'Pokemon  Classic'; /* Dê um nome à sua fonte */
+    font-family: 'Pokemon Classic'; /* Dê um nome à sua fonte */
     src: url(/src/fonts/Pokemon\ Classic.ttf) format('woff2'); /* Substitua pelo caminho real da sua fonte */
     font-weight: normal;
     font-style: normal;
@@ -86,8 +86,8 @@ a{
     font-family: monospace, sans-serif;
 }
 
-.version-name, #result-name, .id, #result-id, .type, .height, .weight, .stats, .moves {
-    font-family: 'Pokemon  Classic', sans-serif;
+.version-name,#previous,#description, #next, #result-name, .id, #result-id, .type, .height, .weight, .stats, .moves {
+    font-family: 'Pokemon Classic', sans-serif;
 }
 
 .buttons-index-next, .buttons-index-prev{
@@ -118,3 +118,21 @@ a{
     background-color: rgb(174 179 183);
     box-shadow: inset -1px 0px 3px 1px black;
 }
+
+.messageNull{
+    color: white;
+    font-family: 'Pokemon Classic', sans-serif;
+    text-align: center;
+}
+/*
+.loading{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    align-items: center;
+    margin: 0 !important;
+}
+*/

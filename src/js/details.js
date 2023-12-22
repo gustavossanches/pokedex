@@ -5,21 +5,6 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 let idd = id
 
-//teste
-/*
-function testandoAqui(n){
-    let soma = id
-    if(n == 0){
-        soma--
-    }else{
-        soma++
-    }
-    params.set('id', soma)
-    const updatedUrl = window.location.origin + window.location.pathname + "?" + params.toString();
-    window.location.href = updatedUrl;
-}
-*/
-
 //botao next
 const next = document.getElementById('next')
 next.addEventListener('click', () => {
@@ -34,7 +19,7 @@ next.addEventListener('click', () => {
 //botao previous
 const previous = document.getElementById('previous')
 if (id == 1) {    //some o botao caso seja o primeiro pokemon
-    previous.style.display = 'none'
+    previous.setAttribute("disabled", true);
 }
 previous.addEventListener('click', () => {
     let soma = id
@@ -50,10 +35,22 @@ const carregaDetail = async (idd) => {
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${idd}`)
         const results = await response.json()
+        console.log(results.species.url)
+        const descriptionFetch = await fetch(results.species.url)
+        const descriptionretults = await descriptionFetch.json()
+        
+        console.log(descriptionretults.flavor_text_entries[0])
+        const description = descriptionretults.flavor_text_entries[0].flavor_text.replaceAll('\f', ' ')
+        const tagdescription = document.getElementById('description')
+        tagdescription.innerHTML = description
+        console.log('tag>>> ', tagdescription)
+        
+        
 
         //pega as informações do pokemon da url
         const nome = results.forms[0].name
         const nomeFormatado = nome.charAt(0).toUpperCase() + nome.substring(1)
+
 
         const moves = results.moves
 
@@ -67,7 +64,6 @@ const carregaDetail = async (idd) => {
         const types = results.types
         types.forEach(({ type }) => {
             const result_type = document.getElementById('result-type')
-            console.log(result_type)
             result_type.innerHTML += `<div class="tipos-detail m-2 type-${type.name}">${type.name}</div>`
         })
 
