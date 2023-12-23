@@ -22,6 +22,19 @@
 [Requisitos](./src/docs/Trabalho_%20Desenvolvimento%20de%20Interface%20Frontend%20com%20PokeAPI.pdf)
 
 
+## Direitos autorais de imagem:
+
+  imagem plano de fundo de Tonerose:
+  https://tonerosedesign.com/hvordan-lage-pokemon-kort-invitasjoner-diy-gratis-print/bakside-invitasjon-pokemonkort-print-ut-pa-a4-glossy-fotopapir-2/
+
+  Pokemon™ e imagem de fundo dos detalhes de Nintendo©
+
+  PokeAPI de Paul Hallett: 
+  
+  https://pokeapi.co/about
+
+  https://github.com/phalt
+  
 ### Entrega:
     
     ● Data para entrega: 22/12/2023

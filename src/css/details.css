@@ -1,8 +1,9 @@
 /*main {
- /*   height: calc(100vh - 64px); */
-    /* height calc is 100vh - (64px from height of header) */
-    /* height pode ser o que dava problema nas telas menores */
-*/
+    height: calc(100vh - 64px); 
+*height calc is 100vh - (64px from height of header)
+**height pode ser o que dava problema nas telas menores 
+}*/
+
 .img-pokemon-container {
     background-image: url(../img/img-pokemon-background.png);
     background-size: cover;
@@ -15,9 +16,8 @@
     }
 }
 
-
 @media only screen and (max-width: 320px) {
-    #result-type{
+    #result-type {
         display: flex;
         flex-wrap: wrap;
     }

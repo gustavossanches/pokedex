@@ -52,10 +52,10 @@ export default function createCards(nome, imagem, id, type) {
   div.classList.add("d-flex");
   div.classList.add("flex-column");
   div.classList.add("align-items-center");
-  
+
   h5.classList.add("card-title");
   h5.classList.add("p-2");
-  
+
 
   h5.id = `pokemon-${id}`;
 
@@ -64,7 +64,7 @@ export default function createCards(nome, imagem, id, type) {
   section.style.backgroundColor = escolherCor(type)
 
 
-// Adiciona um ouvinte de evento para mouseout
+  // Adiciona um ouvinte de evento para mouseout
 
 
   section.addEventListener('click', () => {

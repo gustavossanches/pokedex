@@ -79,7 +79,7 @@ searchForm.addEventListener("submit", async (event) => {
 
     //mensagem caso search não tenha dados e tira os botões
     const dataSearchNull = containerCards.childNodes.length
-    if(dataSearchNull == 0){
+    if (dataSearchNull == 0) {
         const nullMessage = 'Nenhum pokémon foi encontrado!'
         const tagMessage = document.createElement('h3')
         tagMessage.classList.add('messageNull')

@@ -39,7 +39,7 @@ const carregaDetail = async (id) => {
         const description = descriptionretults.flavor_text_entries[0].flavor_text.replaceAll('\f', ' ')
         const tagdescription = document.getElementById('description')
         tagdescription.innerHTML = description
-        
+
         //pega as informações do pokemon da url
         const nome = results.forms[0].name
         const nomeFormatado = nome.charAt(0).toUpperCase() + nome.substring(1)
@@ -62,10 +62,10 @@ const carregaDetail = async (id) => {
 
         //adiciona style nos tipos com base na classe definida em cada um
         const tipos_pokemon_details = document.getElementsByClassName('tipos-detail')
-            for(const tipo of tipos_pokemon_details){
-                const tipo_classe = tipo.className.split(' ')[2].split('-')[1]
-                tipo.style.backgroundColor = escolherCor(tipo_classe)
-            }
+        for (const tipo of tipos_pokemon_details) {
+            const tipo_classe = tipo.className.split(' ')[2].split('-')[1]
+            tipo.style.backgroundColor = escolherCor(tipo_classe)
+        }
 
         const height = results.height / 10;
         const weight = results.weight / 10;

@@ -1,14 +1,17 @@
-
 @font-face {
-    font-family: 'Pokemon Solid'; /* Dê um nome à sua fonte */
-    src: url(/src/fonts/Pokemon\ Solid.ttf) format('woff2'); /* Substitua pelo caminho real da sua fonte */
+    font-family: 'Pokemon Solid';
+    /* Dê um nome à sua fonte */
+    src: url(/src/fonts/Pokemon\ Solid.ttf) format('woff2');
+    /* Substitua pelo caminho real da sua fonte */
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Pokemon Classic'; /* Dê um nome à sua fonte */
-    src: url(/src/fonts/Pokemon\ Classic.ttf) format('woff2'); /* Substitua pelo caminho real da sua fonte */
+    font-family: 'Pokemon Classic';
+    /* Dê um nome à sua fonte */
+    src: url(/src/fonts/Pokemon\ Classic.ttf) format('woff2');
+    /* Substitua pelo caminho real da sua fonte */
     font-weight: normal;
     font-style: normal;
 }
@@ -22,51 +25,49 @@ p {
 }
 
 body {
-    /*url para baixar imagem em hd: https://br.pinterest.com/pin/329536897719871937/ */
-    background-image: url(../img/img-background-pokeballs.jpg);
+    /*url para baixar imagem em hd: https://tonerosedesign.com/hvordan-lage-pokemon-kort-invitasjoner-diy-gratis-print/bakside-invitasjon-pokemonkort-print-ut-pa-a4-glossy-fotopapir-2/ */
+    background-image: url(../img/Bakside-invitasjon-pokemonkort-print-ut-på-a4-glossy-fotopapir-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 /* height calc is 100vh - (56px from height of header + 16px from margin of button return to home) */
 .moves {
     height: 10.625rem;
     overflow-y: auto;
 }
 
-
-
-
-
-a{
+a {
     text-decoration: none;
 }
 
-.logo{
+.logo {
     height: 3rem;
     width: 8rem;
 }
 
 
-#image-normal, #image-shiny {
+#image-normal,
+#image-shiny {
     height: 225px;
     width: 225px;
 }
 
-.card:hover{
+.card:hover {
     filter: brightness(120%);
     transition: 0.09s linear;
     cursor: pointer;
     box-shadow: 0px 0px 10px -3.5px black;
 }
 
-.tipos{
+.tipos {
     text-align: center;
     border-radius: 1rem;
     width: 40%;
     border: 3px solid rgb(75, 63, 63);
 }
 
-.tipos-detail{
+.tipos-detail {
     text-align: center;
     border-radius: 1rem;
     width: 100%;
@@ -74,56 +75,78 @@ a{
     padding: 0px 10px;
 }
 
-.card-title{
+.card-title {
     font-family: 'Pokemon Solid', sans-serif;
     color: rgb(82, 70, 70);
 }
 
-#result-type{
+#result-type {
     display: flex;
 }
-.tipos, .pokemon-id, .tipos-detail, .btn-return, .btn-previous-next-pokemon{
+
+.tipos,
+.pokemon-id,
+.tipos-detail,
+.btn-return,
+.btn-previous-next-pokemon {
     font-family: monospace, sans-serif;
 }
 
-.version-name,#previous,#description, #next, #result-name, .id, #result-id, .type, .height, .weight, .stats, .moves {
+.version-name,
+#previous,
+#description,
+#next,
+#result-name,
+.id,
+#result-id,
+.type,
+.height,
+.weight,
+.stats,
+.moves {
     font-family: 'Pokemon Classic', sans-serif;
 }
 
-.buttons-index-next, .buttons-index-prev{
+.buttons-index-next,
+.buttons-index-prev {
     width: 3rem;
     height: 9rem;
     border-radius: 1.5rem;
 
     background-color: lightgray;
 }
-.buttons-index-prev{
+
+.buttons-index-prev {
     margin-left: 5rem;
     box-shadow: 4px 1px 10px -4px black;
 }
-.buttons-index-next{
+
+.buttons-index-next {
     margin-right: 5rem;
     box-shadow: -4px 1px 10px -4px black;
 }
 
-.buttons-index-next:hover, .buttons-index-prev:hover{
+.buttons-index-next:hover,
+.buttons-index-prev:hover {
     filter: contrast(110%);
 }
 
-.buttons-index-prev:active{
+.buttons-index-prev:active {
     background-color: rgb(174 179 183);
     box-shadow: inset 1px 0px 3px 1px black;
 }
-.buttons-index-next:active{
+
+.buttons-index-next:active {
     background-color: rgb(174 179 183);
     box-shadow: inset -1px 0px 3px 1px black;
 }
 
-.messageNull{
+.messageNull {
     color: white;
     font-family: 'Pokemon Classic', sans-serif;
     text-align: center;
 }
+
 /*
 .loading{
     width: 100%;
